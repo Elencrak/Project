@@ -40,12 +40,12 @@ public class PatrolState : MonoBehaviour,State
     {
         if (init)
         {
+            Debug.Log("Patrouille");
             var targetRotation = Quaternion.LookRotation(target.transform.position - transform.position);
 
             // Smoothly rotate towards the target point.
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
             
-            Debug.Log("Patrouille");
             transform.position = Vector3.MoveTowards(transform.position, target.transform.position,patrolSpeed*Time.deltaTime);
             if(Vector3.Distance(transform.position,target.transform.position) < 1.0f)
             {
@@ -58,12 +58,9 @@ public class PatrolState : MonoBehaviour,State
             if (Vector3.Angle(transform.forward, (player.transform.position - transform.position)) < visionAngle)
             {
                 //Player Detected
+                transform.GetChild(0).GetComponent<Animator>().SetBool("shoot", true);
                 GetComponent<EnemyScript>().currentState = GetComponent<ShootingState>();
             }
-
-
-            // FireShot Detection
-
         }
         else
             Init();

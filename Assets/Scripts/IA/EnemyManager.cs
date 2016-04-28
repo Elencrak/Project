@@ -27,14 +27,15 @@ public class EnemyManager : MonoBehaviour {
         enemyList.RemoveRange(0, enemyList.Count);
     }
 
-    public void alert()
+    /*public void alert()
     {
         foreach (GameObject go in enemyList)
         {
+            go.transform.GetChild(0).GetComponent<Animator>().SetBool("shoot", true);
             go.GetComponent<EnemyScript>().currentState = go.GetComponent<ShootingState>();
                 
         }
-    }
+    }*/
 
 
     void Start () {
