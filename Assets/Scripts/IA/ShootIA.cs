@@ -58,7 +58,7 @@ public class ShootIA : MonoBehaviour {
             //Debug.Log("Name:"+ray.collider.name +" Distance:" + ray.distance);
 
             GameObject go =(GameObject) Instantiate(bullet, transform.position, bullet.transform.rotation);
-            go.GetComponent<bulletScript>().destination = ray.point;
+            go.GetComponent<bulletScript>().direction = direction;
         }
 
 
