@@ -344,11 +344,11 @@ BoxCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 109674}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 2.91, y: 1, z: 8}
+  m_Center: {x: 0.65, y: 0, z: 0}
 --- !u!65 &6565804
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -356,11 +356,11 @@ BoxCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 195026}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 2.91, y: 1, z: 8}
+  m_Center: {x: -0.76, y: 0, z: 0}
 --- !u!65 &6576546
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -368,11 +368,11 @@ BoxCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 128904}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 2.91, y: 1, z: 8}
+  m_Center: {x: 0.65, y: 0, z: 0}
 --- !u!65 &6581192
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -392,11 +392,11 @@ BoxCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 126902}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 2.91, y: 1, z: 8}
+  m_Center: {x: -0.76, y: 0, z: 0}
 --- !u!114 &11404818
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -9,7 +9,6 @@ public class Corridor : MonoBehaviour
     void Start ()
     {
         roomManager = GameObject.FindGameObjectWithTag("Manager").GetComponent<RoomManager>().rooms;
-
     }
 	
 	// Update is called once per frame
