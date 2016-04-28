@@ -11,6 +11,11 @@ public class EnemyScript : MonoBehaviour {
         DEAD
     }
 
+    void Awake()
+    {
+        EnemyManager.instance.addEnemy(gameObject);
+    }
+
     public State currentState;
 
     public float rotationSpeed;
@@ -25,4 +30,9 @@ public class EnemyScript : MonoBehaviour {
 	void Update () {
         currentState.StateUpdate();
 	}
+
+    void OnDestroy()
+    {
+        EnemyManager.instance.removeEnemy(gameObject);
+    }
 }

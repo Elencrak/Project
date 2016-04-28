@@ -2,24 +2,22 @@
 using System.Collections;
 
 public class bulletScript : MonoBehaviour {
-
-    public Vector3 destination;
+    
+    public Vector3 direction = Vector3.zero;
+    public float speed;
     LineRenderer line;
-	// Use this for initialization
-	void Start () {
-        Destroy(this.gameObject, 0.5f);
-        line = this.GetComponent<LineRenderer>();
-	}
 	
 	// Update is called once per frame
 	void Update () {
-        draw();
+        if(direction != Vector3.zero)
+            transform.position += direction * speed * Time.deltaTime;
 	}
+    
 
-    void draw()
+    void OnTriggerEnter(Collider col)
     {
-        line.SetPosition(0, transform.position);
-        line.SetPosition(1, destination);
-        
+        if(col.transform.tag != "Enemy")
+            Destroy(gameObject);
     }
+    
 }

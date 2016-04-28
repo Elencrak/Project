@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public class EnemyManager : MonoBehaviour {
     static public EnemyManager instance;
-    List<GameObject> enemyList;
+    public List<GameObject> enemyList;
 
     void Awake()
     {
@@ -31,7 +31,8 @@ public class EnemyManager : MonoBehaviour {
     {
         foreach (GameObject go in enemyList)
         {
-            //go.getComponent<IA>.changeState()  .... 
+            go.GetComponent<EnemyScript>().currentState = go.GetComponent<ShootingState>();
+                
         }
     }
 

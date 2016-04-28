@@ -18,7 +18,6 @@ public class PatrolState : MonoBehaviour,State
 
     public void Init()
     {
-        // TODO : améliorer pour prendre le plus proche
         float maxDist = Mathf.Infinity;
         float tmp;
         for (int i = 0;i<patrolRoad.Count;++i)

@@ -51,7 +51,6 @@ public class ShootingState : MonoBehaviour, State {
                 else
                 {
                     Debug.Log(hit.transform.tag);
-                    Debug.Log("Lol pd");
                     GetComponent<EnemyScript>().currentState = GetComponent<PatrolState>();
                 }
             }
@@ -75,7 +74,7 @@ public class ShootingState : MonoBehaviour, State {
 
         // Smoothly rotate towards the target point.
         transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
-       
+
         transform.LookAt(player.transform.position);
         direction = transform.forward * precision;
         //direction = player.transform.position - transform.position;
@@ -85,7 +84,7 @@ public class ShootingState : MonoBehaviour, State {
     void trigger()
     {
 
-
+        EnemyManager.instance.alert();
         RaycastHit ray;
         float distance = Vector3.Distance(transform.position, player.transform.position);
 
@@ -97,11 +96,12 @@ public class ShootingState : MonoBehaviour, State {
             targetPosition.Normalize();
         targetPosition += player.transform.position;
 
-        Debug.DrawLine(transform.position, targetPosition, Color.red);
+        //Debug.DrawLine(transform.position, targetPosition, Color.red);
         if (Physics.Raycast(transform.position, targetPosition-transform.position, out ray, range))
         {
             //Debug.Log("Name:"+ray.collider.name +" Distance:" + ray.distance);
-            //Instantiate(bullet, ray.point, bullet.transform.rotation);
+            GameObject go = (GameObject)Instantiate(bullet, transform.position, bullet.transform.rotation);
+            go.GetComponent<bulletScript>().direction = (targetPosition - transform.position).normalized;
         }
 
         bulletShoot++;
