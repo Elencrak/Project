@@ -10,6 +10,7 @@ public class ShootingState : MonoBehaviour, State {
     public float sprayRecul;
     public float maxRecul = 0.5f;
     public GameObject bullet;
+    public GameObject shootStart;
     GameObject player;
     public float shootSpeed = 0.5f;
     int bulletShoot = 0;
@@ -31,6 +32,7 @@ public class ShootingState : MonoBehaviour, State {
     {
         if (init)
         {
+            Debug.Log("Shooting");
             var targetRotation = Quaternion.LookRotation(player.transform.position - transform.position);
        
             // Smoothly rotate towards the target point.
@@ -50,12 +52,13 @@ public class ShootingState : MonoBehaviour, State {
                 }
                 else
                 {
-                    Debug.Log(hit.transform.tag);
+                    transform.GetChild(0).GetComponent<Animator>().SetBool("shoot", false);
                     GetComponent<EnemyScript>().currentState = GetComponent<PatrolState>();
                 }
             }
             else
             {
+                transform.GetChild(0).GetComponent<Animator>().SetBool("shoot", false);
                 GetComponent<EnemyScript>().currentState = GetComponent<PatrolState>();
             }
         }
@@ -84,7 +87,7 @@ public class ShootingState : MonoBehaviour, State {
     void trigger()
     {
 
-        EnemyManager.instance.alert();
+        //EnemyManager.instance.alert();
         RaycastHit ray;
         float distance = Vector3.Distance(transform.position, player.transform.position);
 
@@ -100,7 +103,7 @@ public class ShootingState : MonoBehaviour, State {
         if (Physics.Raycast(transform.position, targetPosition-transform.position, out ray, range))
         {
             //Debug.Log("Name:"+ray.collider.name +" Distance:" + ray.distance);
-            GameObject go = (GameObject)Instantiate(bullet, transform.position, bullet.transform.rotation);
+            GameObject go = (GameObject)Instantiate(bullet, shootStart.transform.position, bullet.transform.rotation);
             go.GetComponent<bulletScript>().direction = (targetPosition - transform.position).normalized;
         }
 
