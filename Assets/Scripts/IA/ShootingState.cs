@@ -32,7 +32,6 @@ public class ShootingState : MonoBehaviour, State {
     {
         if (init)
         {
-            Debug.Log("Shooting");
             var targetRotation = Quaternion.LookRotation(player.transform.position - transform.position);
        
             // Smoothly rotate towards the target point.

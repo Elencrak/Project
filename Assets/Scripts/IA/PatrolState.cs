@@ -40,7 +40,7 @@ public class PatrolState : MonoBehaviour,State
     {
         if (init)
         {
-            Debug.Log("Patrouille");
+
             var targetRotation = Quaternion.LookRotation(target.transform.position - transform.position);
 
             // Smoothly rotate towards the target point.
