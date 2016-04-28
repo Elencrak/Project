@@ -16,12 +16,14 @@ public class ShootingState : MonoBehaviour, State {
     float lastShoot;
     Vector3 direction;
     int sprayReset = 10;
+    float rotationSpeed;
 
     public void Init()
     {
         lastShoot = -1;
         player = GameObject.FindGameObjectWithTag("Player");
         bulletShoot = 0;
+        rotationSpeed = GetComponent<EnemyScript>().rotationSpeed;
         init = true;
     }
 
@@ -29,7 +31,11 @@ public class ShootingState : MonoBehaviour, State {
     {
         if (init)
         {
-            transform.LookAt(player.transform.position);
+            var targetRotation = Quaternion.LookRotation(player.transform.position - transform.position);
+       
+            // Smoothly rotate towards the target point.
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+
             RaycastHit hit;
             
             if (Physics.Raycast(transform.position, (player.transform.position - transform.position), out hit))
@@ -44,6 +50,8 @@ public class ShootingState : MonoBehaviour, State {
                 }
                 else
                 {
+                    Debug.Log(hit.transform.tag);
+                    Debug.Log("Lol pd");
                     GetComponent<EnemyScript>().currentState = GetComponent<PatrolState>();
                 }
             }
@@ -62,6 +70,12 @@ public class ShootingState : MonoBehaviour, State {
     {
         //if (sprayReset < bulletShoot)
         //    bulletShoot = 0;
+        
+        var targetRotation = Quaternion.LookRotation(player.transform.position - transform.position);
+
+        // Smoothly rotate towards the target point.
+        transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+       
         transform.LookAt(player.transform.position);
         direction = transform.forward * precision;
         //direction = player.transform.position - transform.position;
@@ -87,7 +101,7 @@ public class ShootingState : MonoBehaviour, State {
         if (Physics.Raycast(transform.position, targetPosition-transform.position, out ray, range))
         {
             //Debug.Log("Name:"+ray.collider.name +" Distance:" + ray.distance);
-            Instantiate(bullet, ray.point, bullet.transform.rotation);
+            //Instantiate(bullet, ray.point, bullet.transform.rotation);
         }
 
         bulletShoot++;

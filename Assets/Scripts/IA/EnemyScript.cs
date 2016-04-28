@@ -12,7 +12,8 @@ public class EnemyScript : MonoBehaviour {
     }
 
     public State currentState;
-    
+
+    public float rotationSpeed;
     
 
     // Use this for initialization
