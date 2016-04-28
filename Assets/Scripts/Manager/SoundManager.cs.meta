@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 1ee0156f06269e24f9cb7e753efb6c0b
+timeCreated: 1456137084
+licenseType: Pro
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - speakerPrefab: {fileID: 179608, guid: e1347b465017f9046a7fb2fc7a3f6f5e, type: 2}
+  - speaker: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
