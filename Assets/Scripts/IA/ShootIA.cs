@@ -36,7 +36,7 @@ public class ShootIA : MonoBehaviour {
     {
         //if (sprayReset < bulletShoot)
         //    bulletShoot = 0;
-        transform.LookAt(player.transform.position);
+        transform.parent.transform.LookAt(player.transform.position);
         direction = transform.forward * precision;
         //direction = player.transform.position - transform.position;
         trigger();
@@ -56,7 +56,9 @@ public class ShootIA : MonoBehaviour {
         if (Physics.Raycast(transform.position, direction, out ray, range))
         {
             //Debug.Log("Name:"+ray.collider.name +" Distance:" + ray.distance);
-            Instantiate(bullet, ray.point, bullet.transform.rotation);
+
+            GameObject go =(GameObject) Instantiate(bullet, transform.position, bullet.transform.rotation);
+            go.GetComponent<bulletScript>().destination = ray.point;
         }
 
 
