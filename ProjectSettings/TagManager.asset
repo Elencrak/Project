@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Arm
   - Interactible
+  - Wall
+  - Holster
   layers:
   - Default
   - TransparentFX

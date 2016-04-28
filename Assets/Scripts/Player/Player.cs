@@ -11,18 +11,7 @@ public class Player : MonoBehaviour {
     //Player values
     float life;
 
-
-	// Use this for initialization
-	void Start () {
-
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
-
-    void Hit(float damage)
+    public void Hit(float damage)
     {
         if(life > Values.EPSYLON)
         {
